@@ -1,0 +1,162 @@
+! Origo
+www.origo.hu##.article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.origo.hu##origo-opinion-box:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.origo.hu##.external-recommendations
+www.origo.hu##origo-most-read
+
+
+! Metropol
+metropol.hu##metropol-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+metropol.hu##metropol-several-element-box:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+metropol.hu##.recommendation-block-external
+metropol.hu##.free-display-inventory-wrapper
+metropol.hu##.givg_list
+
+
+! Bors
+www.borsonline.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.borsonline.hu##.they-may-also-be-interested-box-wrapper
+www.borsonline.hu##.bottom-recommendation
+
+
+! Mandiner
+mandiner.hu##man-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+mandiner.hu##.opinion-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+mandiner.hu##.recommendation-block-external
+mandiner.hu###kommentek
+mandiner.hu##.newsletter-diverter-card-article
+mandiner.hu##:xpath(//a[contains(@href, 'elofizetes')])
+
+
+! Magyar Nemzet
+magyarnemzet.hu##article:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+magyarnemzet.hu##.style-ExternalRecommendation
+magyarnemzet.hu##app-recommendation-block
+magyarnemzet.hu##div.recommendation
+magyarnemzet.hu##kesma-news-branding-box
+magyarnemzet.hu##.open.newsletter-box
+
+! Hirado
+hirado.hu##li.six-big-container:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+hirado.hu##div.ext-article-item:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+hirado.hu##.cikk:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+hirado.hu##.articleRecommenderInContent_links_Container
+
+
+! vadhajtasok
+www.vadhajtasok.hu##article:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+
+
+! Regional portals
+
+www.baon.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.baon.hu##.external-recommendation-article
+www.baon.hu##.article-recommendation-block
+
+www.bama.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.bama.hu##.external-recommendation-article
+www.bama.hu##.article-recommendation-block
+
+www.beol.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.beol.hu##.external-recommendation-article
+www.beol.hu##.article-recommendation-block
+
+www.boon.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.boon.hu##.external-recommendation-article
+www.boon.hu##.article-recommendation-block
+
+www.delmagyar.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.delmagyar.hu##.external-recommendation-article
+www.delmagyar.hu##.article-recommendation-block
+
+www.duol.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.duol.hu##.external-recommendation-article
+www.duol.hu##.article-recommendation-block
+
+www.feol.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.feol.hu##.external-recommendation-article
+www.feol.hu##.article-recommendation-block
+
+www.kisalfold.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.kisalfold.hu##.external-recommendation-article
+www.kisalfold.hu##.article-recommendation-block
+
+www.haon.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.haon.hu##.external-recommendation-article
+www.haon.hu##.article-recommendation-block
+
+www.heol.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.heol.hu##.external-recommendation-article
+www.heol.hu##.article-recommendation-block
+
+www.szoljon.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.szoljon.hu##.external-recommendation-article
+www.szoljon.hu##.article-recommendation-block
+
+www.kemma.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.kemma.hu##.external-recommendation-article
+www.kemma.hu##.article-recommendation-block
+
+www.nool.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.nool.hu##.external-recommendation-article
+www.nool.hu##.article-recommendation-block
+
+www.sonline.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.sonline.hu##.external-recommendation-article
+www.sonline.hu##.article-recommendation-block
+
+www.szon.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.szon.hu##.external-recommendation-article
+www.szon.hu##.article-recommendation-block
+
+www.teol.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.teol.hu##.external-recommendation-article
+www.teol.hu##.article-recommendation-block
+
+www.vaol.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.vaol.hu##.external-recommendation-article
+www.vaol.hu##.article-recommendation-block
+
+www.veol.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.veol.hu##.external-recommendation-article
+www.veol.hu##.article-recommendation-block
+
+www.zaol.hu##app-article-card:has-text(/magyar[\s”\"]+péter|magyarék|polosk|háborúpárti|manfred\sweber|migráns|szélsőbal|momentum|csekk\skatalin/i)
+www.zaol.hu##.external-recommendation-article
+www.zaol.hu##.article-recommendation-block
+
+szegedma.hu##.external-recommendations
+
+! Ripost
+ripost.hu##.external-recommendation
+
+
+! Mediaworks magazines
+www.astronet.hu###portfolio_offerer
+dietaesfitnesz.hu###portfolio_offerer
+vitorlazasmagazin.hu###portfolio_offerer
+videkize.hu###portfolio_offerer
+www.lakaskultura.hu###portfolio_offerer
+likebalaton.hu##.portfolio_container
+www.automotor.hu###portfolioEzekIsErdekelhetnek
+www.mindmegette.hu###portfolioEzekisérdekelhetnek
+www.travelo.hu###under-article-offers
+www.life.hu##.recommendation-block
+she.life.hu##.external-recommendations
+
+
+! menetrendek.hu
+menetrendek.hu##.proposer
+
+
+! koponyeg.hu
+koponyeg.hu##.recommendation-block-external
+koponyeg.hu##.recommendation-outer-wrapper
+
+
+! Freemail
+freemail.hu##a:matches-attr(href=/mediaworks/)
+accounts.freemail.hu##.newsWrapper-0-2-15
+
+! Generic mediaworks
+||terelo.mediaworks.hu^
