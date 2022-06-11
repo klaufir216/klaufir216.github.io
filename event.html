@@ -58,7 +58,7 @@
         var hhmmss = hours + ":" + minutes + ":" + seconds;// + "." + milliseconds;
         
         var hoursTotal = duration._milliseconds / 1000 / 60 / 60;
-        if (hoursTotal < 24)
+        if (hoursTotal < 24 && duration._milliseconds > 0)
             document.getElementById('humanized').innerText = hhmmss;
         else
             document.getElementById("humanized").innerText = duration.humanize(true);
