@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title></title>
+  <style>
+    * {font-family: monospace}
+    #main {text-align: center; font-size: 1.5em}
+    #title {font-size: 150%; padding-bottom: .5em; }
+    #local {font-size: 150%; }
+    #frame {background-color: #efefef;  margin: 0 auto; display: inline-block;
+        padding: .5em 1em .5em 1em}
+    #utc {font-size: 60% }
+
+
+    
+  </style>
+  <script>
+    function onLoad() {
+      var utcstring = new URLSearchParams(document.location.search).get('t')
+      var title = new URLSearchParams(document.location.search).get('title');
+      document.title = title;
+      window.event_time = moment.utc(utcstring);
+
+
+
+      document.getElementById("utc").innerText = "UTC: " + event_time.utc().format('YYYY-MM-DD HH:mm:ss'); //moment_utc.format('YYYY-MM-DD HH:mm:ss');
+      
+      document.getElementById("local").innerText = event_time.local().format('LLLL') + " " + moment.tz(moment.tz.guess()).zoneAbbr();
+      document.getElementById("title").innerText = title;
+      updateRemainingTime();
+    }
+    
+    function getRemainingTimeText() {
+        var duration = moment.duration(window.event_time - moment.now(), 'milliseconds');
+        return duration.hours() + "h " + duration.minutes() + "m " + duration.seconds() + "s " + String(duration.milliseconds()).padStart(3,'0') + "ms";
+    }
+    
+    function updateRemainingTime() {
+        document.getElementById('countdown').innerText = "Remaining time: " + getRemainingTimeText();
+    }
+    
+    window.setInterval(updateRemainingTime, 1);
+    
+    window.addEventListener('load', onLoad);
+
+  </script>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment-with-locales.min.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.14.1/locales.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.34/builds/moment-timezone-with-data.js"></script>
+<div id="main">
+    <div id="frame">
+        <div id="title"></div>
+        <div id="local"></div>
+        <div id="countdown"></div>
+    </div>
+  <div id="utc"></div>
+</div>
+  
+</body>
+</html>
