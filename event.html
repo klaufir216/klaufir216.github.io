@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width">
   <title></title>
   <style>
-    * {font-family: monospace}
+    * {font-family: Segoe UI, Tahoma, Arial}
     #main {text-align: center; font-size: 1.5em}
-    #title {font-size: 120%; padding-bottom: .7em; }
+    #title {font-size: 140%; padding-bottom: .7em; }
     #imgdiv {padding-bottom: .7em;}
-    #local {font-size: 100%; padding-bottom: .7em; }
+    #local {font-size: 110%; padding-bottom: .2em; }
+    #humanized {font-size: 80%; padding-bottom: .7em;}
     #frame {background-color: #efefef;  margin: 0 auto; display: inline-block;
         padding: .5em 1em .5em 1em}
     #utc {font-size: 60% }
@@ -43,23 +44,27 @@
       
       document.getElementById("local").innerText = event_time.local().format('LLLL') + " " + moment.tz(moment.tz.guess()).zoneAbbr();
       
-      updateRemainingTime();
+      
+      
+      setRemainingTimeText();
     }
     
-    function getRemainingTimeText() {
+    function setRemainingTimeText() {
         var duration = moment.duration(window.event_time - moment.now(), 'milliseconds');
         var hours = String(duration.hours()).padStart(2,'0');
         var minutes = String(duration.minutes()).padStart(2,'0');
         var seconds = String(duration.seconds()).padStart(2,'0');
-        var milliseconds = String(duration.milliseconds()).padStart(3,'0');
-        return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+        //var milliseconds = String(duration.milliseconds()).padStart(3,'0');
+        var hhmmss = hours + ":" + minutes + ":" + seconds;// + "." + milliseconds;
+        
+        var hoursTotal = duration._milliseconds / 1000 / 60 / 60;
+        if (hoursTotal < 24)
+            document.getElementById('humanized').innerText = hhmmss;
+        else
+            document.getElementById("humanized").innerText = duration.humanize(true);
     }
     
-    function updateRemainingTime() {
-        document.getElementById('countdown').innerText = "Remaining time: " + getRemainingTimeText();
-    }
-    
-    window.setInterval(updateRemainingTime, 1);
+    window.setInterval(setRemainingTimeText, 1000);
     
     window.addEventListener('load', onLoad);
 
@@ -72,8 +77,9 @@
     <div id="frame">
         <div id="title"></div>
         <div id="local"></div>
+        <div id="humanized"></div>
         <div id="imgdiv"><img id="img" src=""/ width="200px" height="auto"></div>
-        <div id="countdown"></div>
+
     </div>
   <div id="utc"></div>
 </div>
