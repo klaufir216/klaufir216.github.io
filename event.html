@@ -19,6 +19,8 @@
   </style>
   <script>
     function onLoad() {
+      var locale = window.navigator.userLanguage || window.navigator.language;
+      moment.locale(locale);
       var imgsrc = new URLSearchParams(document.location.search).get('imgsrc');
       if (imgsrc)
         document.getElementById('img').setAttribute('src',imgsrc)
@@ -46,11 +48,11 @@
     
     function getRemainingTimeText() {
         var duration = moment.duration(window.event_time - moment.now(), 'milliseconds');
-        var hours = String(duration.hours()).padStart(2,'0') + "h ";
-        var minutes = String(duration.minutes()).padStart(2,'0') + "m "
-        var seconds = String(duration.seconds()).padStart(2,'0') + "s ";
-        var milliseconds = String(duration.milliseconds()).padStart(3,'0') + "ms";
-        return hours + minutes + seconds + milliseconds;
+        var hours = String(duration.hours()).padStart(2,'0');
+        var minutes = String(duration.minutes()).padStart(2,'0');
+        var seconds = String(duration.seconds()).padStart(2,'0');
+        var milliseconds = String(duration.milliseconds()).padStart(3,'0');
+        return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
     }
     
     function updateRemainingTime() {
@@ -64,8 +66,7 @@
   </script>
 </head>
 <body>
-<script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment-with-locales.min.js"></script>
-<script src="https://cdn.jsdelivr.net/momentjs/2.14.1/locales.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.29.3/min/moment-with-locales.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.34/builds/moment-timezone-with-data.js"></script>
 <div id="main">
     <div id="frame">
