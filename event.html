@@ -7,8 +7,9 @@
   <style>
     * {font-family: monospace}
     #main {text-align: center; font-size: 1.5em}
-    #title {font-size: 150%; padding-bottom: .5em; }
-    #local {font-size: 150%; }
+    #title {font-size: 120%; padding-bottom: .7em; }
+    #imgdiv {padding-bottom: .7em;}
+    #local {font-size: 100%; padding-bottom: .7em; }
     #frame {background-color: #efefef;  margin: 0 auto; display: inline-block;
         padding: .5em 1em .5em 1em}
     #utc {font-size: 60% }
@@ -18,9 +19,20 @@
   </style>
   <script>
     function onLoad() {
+      var imgsrc = new URLSearchParams(document.location.search).get('imgsrc');
+      if (imgsrc)
+        document.getElementById('img').setAttribute('src',imgsrc)
+      else
+        document.getElementById('imgdiv').setAttribute('style', 'display: none');
+      //
       var utcstring = new URLSearchParams(document.location.search).get('t')
       var title = new URLSearchParams(document.location.search).get('title');
-      document.title = title;
+      if (title) {
+        document.title = title;
+        document.getElementById("title").innerText = title;  
+      } else {
+        document.getElementById("title").setAttribute('style', 'display: none');
+      }
       window.event_time = moment.utc(utcstring);
 
 
@@ -28,13 +40,17 @@
       document.getElementById("utc").innerText = "UTC: " + event_time.utc().format('YYYY-MM-DD HH:mm:ss'); //moment_utc.format('YYYY-MM-DD HH:mm:ss');
       
       document.getElementById("local").innerText = event_time.local().format('LLLL') + " " + moment.tz(moment.tz.guess()).zoneAbbr();
-      document.getElementById("title").innerText = title;
+      
       updateRemainingTime();
     }
     
     function getRemainingTimeText() {
         var duration = moment.duration(window.event_time - moment.now(), 'milliseconds');
-        return duration.hours() + "h " + duration.minutes() + "m " + duration.seconds() + "s " + String(duration.milliseconds()).padStart(3,'0') + "ms";
+        var hours = String(duration.hours()).padStart(2,'0') + "h ";
+        var minutes = String(duration.minutes()).padStart(2,'0') + "m "
+        var seconds = String(duration.seconds()).padStart(2,'0') + "s ";
+        var milliseconds = String(duration.milliseconds()).padStart(3,'0') + "ms";
+        return hours + minutes + seconds + milliseconds;
     }
     
     function updateRemainingTime() {
@@ -55,6 +71,7 @@
     <div id="frame">
         <div id="title"></div>
         <div id="local"></div>
+        <div id="imgdiv"><img id="img" src=""/ width="200px" height="auto"></div>
         <div id="countdown"></div>
     </div>
   <div id="utc"></div>
