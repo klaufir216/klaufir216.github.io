@@ -42,7 +42,14 @@
 
       document.getElementById("utc").innerText = "UTC: " + event_time.utc().format('YYYY-MM-DD HH:mm:ss'); //moment_utc.format('YYYY-MM-DD HH:mm:ss');
       
-      document.getElementById("local").innerText = event_time.local().format('LLLL') + " " + moment.tz(moment.tz.guess()).zoneAbbr();
+      var timezoneAbbr = moment.tz(moment.tz.guess()).zoneAbbr();
+      window.timezoneAbbr = timezoneAbbr;
+      var utcDeltaTz = new RegExp('^(\\+|\\-)[012]\\d$')
+      if (timezoneAbbr.match(utcDeltaTz))
+      {
+        timezoneAbbr = 'UTC' + timezoneAbbr;
+      }
+      document.getElementById("local").innerText = event_time.local().format('LLLL') + " (" + timezoneAbbr + ")";
       
       
       
