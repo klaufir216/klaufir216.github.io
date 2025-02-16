@@ -2,7 +2,31 @@
  Page saved with SingleFile 
  url: https://www.cvut.cz/fakulta-elektrotechnicka 
  saved date: Sun Feb 16 2025 10:57:25 GMT+0100 (Central European Standard Time)
---><head><meta charset="utf-8">
+--><head>
+<style>
+a, h1, img, #active-trail {
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+    z-index: 1;
+}
+@-moz-keyframes spin { 
+    100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
+}
+
+</style>
+
+
+<meta charset="utf-8">
   
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <meta content="ie=edge" http-equiv="x-ua-compatible">
