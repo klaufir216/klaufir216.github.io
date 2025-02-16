@@ -103,11 +103,59 @@
   
       
   <div class="content">
-    <div class="field field-name-field-content field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><h2 style="font-size: 40px; margin: 0">EXAM OF DEATH</h2>
+    <div class="field field-name-field-content field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even">
+    <h2 style="font-size: 40px; margin: 0">EXAM OF DEATH</h2>
+    <div id="slideshow"></div>
     
      <div id="countdown" style="font-size: 50px; line-height: 1; text-align: center"></div>
 
     <script>
+
+        function slideshow() {
+            var i = 0;
+            var lines = [
+                "VOLE",
+                "VOLE",
+                "VOLE",
+                "skutečná síla z ulice",
+                "lebky se lesknou",
+                "v paštice, šusťákovce",
+                "nevznikneš",
+                "neunikneš",
+                "nože a mozky, krabice s kostmi",
+                "uliční boj, železný masky",
+                "je to parta z naší ulice",
+                "která řeže vříská a dělá opilce",
+                "tvoje matka ti říká vole",
+                "v pekle uslyšíš jenom vole",
+                "s nožem v ruce ti říkám vole",
+                "vole",
+                "",
+                "",
+                "",
+                "Noční psi",
+                "Noční psi",
+                "Noční psi",
+                "přijel ze tmy s krásnými psy",
+                "pověz mi jestli si jed na krysy",
+                "krvelačná zvěř",
+                "jed na krysy, jed na krysy",
+                "pokud vaši děti neví kde je tunel",
+                "tak i vaši dědci neví kde je světlo",
+                "polepšovna je tvá volba",
+                "",
+                "",
+                "",
+                
+            ];
+            function updateSlidehow() {
+                var line = lines[i++ % lines.length];
+                document.getElementById('slideshow').innerText = line;
+            }
+            
+            const interval = setInterval(updateSlidehow, 1000);
+        }
+    
         function startCountdown(targetDate) {
             function updateCountdown() {
                 const now = new Date().getTime();
@@ -141,6 +189,7 @@
         // Set target date (YYYY, MM-1, DD, HH, MM, SS)
         const targetDate = new Date(2025, 5, 10, 0, 0, 0).getTime(); // March 1, 2025, 00:00:00
         startCountdown(targetDate);
+        slideshow();
     </script>
 
 
