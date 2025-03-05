@@ -30,21 +30,21 @@
     <main>
       <div class="editor-container">
         <textarea id="markdownInput" placeholder="Type your markdown here..."></textarea>
-        <div id="characterCount">1500 characters remaining.</div>
-        <button id="generateUrlBtn">Generate URL</button>
-        <button id="copyToClipboardBtn">Copy to Clipboard</button>
         <div>
           <input type="text" id="generatedUrl" readonly style="width: 100%; max-width: 100%; box-sizing: border-box;">
-          <button id="clearUrlBtn">Clear</button>
+        </div>
+        <div>
+        
+        <button id="copyToClipboardBtn" style="min-width: 18em">Copy to Clipboard</button>
         </div>
       </div>
       <div class="preview-container">
-        <h2 id="preview-title">Preview</h2>
         <div id="preview"></div>
       </div>
     </main>
-    <footer>
-    <p>Written by David Lowry-Duda and fixed by klaufir216.</p>
+    <footer style="font-size: x-small">
+    <p>Written by David Lowry-Duda and improved by klaufir216.</p>
+    <p>proper utf support, removed ridiculous character limit, uriencode instead of base64, automatic url generation, removed useless clear button</p>
     </footer>
     <script src="script.js"></script>
   </body>

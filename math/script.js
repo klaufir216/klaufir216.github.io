@@ -1,12 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
   const markdownInput = document.getElementById('markdownInput');
-  const characterCount = document.getElementById('characterCount');
+  
   const preview = document.getElementById('preview');
-  const generateUrlBtn = document.getElementById('generateUrlBtn');
-  const generatedUrlInput = document.getElementById('generatedUrl');
+    const generatedUrlInput = document.getElementById('generatedUrl');
   const copyToClipboardBtn = document.getElementById('copyToClipboardBtn');
-  const maxChars = 1500;
+  
   let timeoutId;
+
+    function generateUrl() {
+        const currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.delete("data");
+        const markdown = markdownInput.value;
+        const uriEncoded = encodeURIComponent(markdown); // Encode markdown in base64
+        currentUrl.searchParams.set("data", uriEncoded);
+        generatedUrlInput.value = currentUrl.toString(); // Display generated URL
+    }
 
   // Function to update the preview using marked.js
   function updatePreview(markdown) {
@@ -27,9 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const markdown = decodeURIComponent(base64Data); // Decode base64 to markdown
       markdownInput.value = markdown; // Populate the textarea with markdown
       updatePreview(markdown); // Update the preview with the loaded markdown
-      const remainingChars = maxChars - markdown.length;
-      characterCount.textContent = `${remainingChars} characters remaining.`;
-      characterCount.style.color = remainingChars < 0 ? 'red' : 'gray';
     }
   }
 
@@ -39,49 +44,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // Update character count based on input
   markdownInput.addEventListener('input', () => {
     const inputLength = markdownInput.value.length;
-    const remainingChars = maxChars - inputLength;
-
-    characterCount.textContent = `${remainingChars} characters remaining.`;
-
     // Change the color of the character count if it exceeds the limit
-    if (remainingChars < 0) {
-      characterCount.style.color = 'red';
-    } else {
-      characterCount.style.color = 'gray';
-    }
+
 
     // Clear the previous timeout
     clearTimeout(timeoutId);
 
     // Set a new timeout to update the preview after 2 seconds
     timeoutId = setTimeout(() => {
+      generateUrl();
       updatePreview(markdownInput.value);
-    }, 2000);
-  });
-
-  // Function to generate the URL
-  generateUrlBtn.addEventListener('click', () => {
-    const currentUrl = new URL(window.location.href);
-    currentUrl.searchParams.delete("data");
-    const markdown = markdownInput.value;
-    const base64Encoded = encodeURIComponent(markdown); // Encode markdown in base64
-    currentUrl.searchParams.set("data", base64Encoded);
-    const url = `${window.location.href}?data=${base64Encoded}`; // Create URL with encoded data
-    generatedUrlInput.value = url; // Display generated URL
-  });
-
-  document.getElementById("clearUrlBtn").addEventListener("click", () => {
-    document.getElementById("generatedUrl").value = ""; // Clear the URL input field
+    }, 500);
   });
 
   // Copy the generated URL to clipboard
   copyToClipboardBtn.addEventListener('click', () => {
     generatedUrlInput.select();
     document.execCommand('copy');
-    alert('URL copied to clipboard!');
+    var originalText = copyToClipboardBtn.textContent;
+    copyToClipboardBtn.textContent = "Done!";
+    setTimeout(() => {
+        copyToClipboardBtn.textContent = originalText;
+    }, 1000);
   });
-
-  // Display the current year in the footer
-  document.getElementById('currentYear').textContent = new Date().getFullYear();
 });
 
