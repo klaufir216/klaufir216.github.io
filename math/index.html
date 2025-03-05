@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathShare</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+      MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          processEnvironments: true,
+          processRefs: true,
+        },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1><a href="#">MathShare</a></h1>
+      <nav>
+        <a href="/static/MathShare/about.html">About</a>
+        <a href="/static/MathShare/latex.html">How to write latex?</a>
+        <a href="https://github.com/davidlowryduda/MathShare">Source</a>
+      </nav>
+    </header>
+    <main>
+      <div class="editor-container">
+        <textarea id="markdownInput" placeholder="Type your markdown here..."></textarea>
+        <div id="characterCount">1500 characters remaining.</div>
+        <button id="generateUrlBtn">Generate URL</button>
+        <button id="copyToClipboardBtn">Copy to Clipboard</button>
+        <div>
+          <input type="text" id="generatedUrl" readonly style="width: 100%; max-width: 100%; box-sizing: border-box;">
+          <button id="clearUrlBtn">Clear</button>
+        </div>
+      </div>
+      <div class="preview-container">
+        <h2 id="preview-title">Preview</h2>
+        <div id="preview"></div>
+      </div>
+    </main>
+    <footer>
+      <p>Written by David Lowry-Duda &copy; <span id="currentYear"></span>.
+      If this is useful, you can <a href="https://buymeacoffee.com/davidlowryduda">Buy Me a Coffee</a>.</p>
+      <p>This is free and open source software. The source code of this site is
+      available on <a href="https://github.com/davidlowryduda/MathShare">GitHub</a> under the
+      terms of the <a href="https://github.com/davidlowryduda/MathShare/blob/master/LICENSE">MIT License</a>.</p>
+      <p><a href="https://github.com/davidlowryduda/MathShare/issues/new">Report a bug, suggest improvement, or ask questions</a></p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
+
