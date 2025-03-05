@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const base64Data = params.get('data');
     if (base64Data) {
-      const markdown = atob(base64Data); // Decode base64 to markdown
+      const markdown = decodeURIComponent(base64Data); // Decode base64 to markdown
       markdownInput.value = markdown; // Populate the textarea with markdown
       updatePreview(markdown); // Update the preview with the loaded markdown
       const remainingChars = maxChars - markdown.length;
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentUrl = new URL(window.location.href);
     currentUrl.searchParams.delete("data");
     const markdown = markdownInput.value;
-    const base64Encoded = btoa(markdown); // Encode markdown in base64
+    const base64Encoded = encodeURIComponent(markdown); // Encode markdown in base64
     currentUrl.searchParams.set("data", base64Encoded);
     const url = `${window.location.href}?data=${base64Encoded}`; // Create URL with encoded data
     generatedUrlInput.value = url; // Display generated URL
