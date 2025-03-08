@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function base64ToBytes(str) {
         return Uint8Array.from(atob(str), (c) => c.charCodeAt(0));
     }
-
+    
 
     function compress(str) {
         var array = (new TextEncoder()).encode(str);
@@ -24,11 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
             level: 9
         });
         var base64string = bytesToBase64(compressedArray);
-        return base64string;
+        return base64string.replace(/=+$/,'').replace(/\+/g,'-').replace(/\//g,'_');
     }
 
     function decompress(base64string) {
-        var compressedArray = base64ToBytes(base64string)
+        if (base64string.indexOf('%') >= 0) {
+            base64string = decodeURIComponent(base64string);
+        }
+        var compressedArray = base64ToBytes(base64string.replace(/-/g,'+').replace(/_/g,'/'))
         var decompressedArray = fflate.unzlibSync(compressedArray);
         var string = new TextDecoder().decode(decompressedArray);
         return string;
@@ -38,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentUrl = new URL(window.location.href);
         currentUrl.searchParams.delete("data");
         const markdown = markdownInput.value;
-        const uriEncoded = encodeURIComponent(compress(markdown)); // Encode markdown in base64
+        const uriEncoded = compress(markdown); // Encode markdown in base64
         currentUrl.searchParams.set("data", uriEncoded);
         generatedUrlInput.value = currentUrl.toString(); // Display generated URL
     }
@@ -57,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const params = new URLSearchParams(window.location.search);
         const dataParam = params.get('data');
         if (dataParam) {
-            const markdown = decompress(decodeURIComponent(dataParam)); // Decode base64 to markdown
+            const markdown = decompress(dataParam); // Decode base64 to markdown
             markdownInput.value = markdown; // Populate the textarea with markdown
             updatePreview(markdown); // Update the preview with the loaded markdown
         }
@@ -92,4 +95,5 @@ document.addEventListener('DOMContentLoaded', () => {
             copyToClipboardBtn.textContent = originalText;
         }, 1000);
     });
+    generateUrl();
 });

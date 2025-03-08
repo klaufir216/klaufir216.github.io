@@ -115,6 +115,14 @@ input#generatedUrl {
     margin-top: 1em;
 }
 
+.katex {
+    font-size: 1.3em;
+}
+
+.preview-container {
+    line-height: 1.75;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   main {
